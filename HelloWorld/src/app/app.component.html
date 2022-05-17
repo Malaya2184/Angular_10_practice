@@ -1,3 +1,29 @@
 <h1>Hello {{title}}</h1>
 
 <h2><input type="text" [(ngModel)]="myName"> {{myName}}</h2>
+
+<input type="button" (click)="toggle()" value="toggle button">
+<div *ngIf="show; else elsepart ">This is if part</div>
+<ng-template #elsepart>
+  <div>this is else part</div>
+</ng-template>
+<!-- <div *ngFor="let sub of subject; let i = index">
+  <span *ngIf="i !=0">{{sub}}</span>
+</div> -->
+
+<select [(ngModel)]="selectedSub">
+  <option *ngFor="let sub of subject" value="{{sub}}">{{sub}}</option>
+</select>
+&nbsp;
+&nbsp;
+
+options without physics--->
+<select [(ngModel)]="selectedSub">
+  <ng-container *ngFor="let sub of subject">
+    <ng-container *ngIf="sub != 'physics'">
+      <option  value="{{sub}}">{{sub}}</option>
+    </ng-container>
+  </ng-container>
+</select>
+
+<app-life-cycle></app-life-cycle>
