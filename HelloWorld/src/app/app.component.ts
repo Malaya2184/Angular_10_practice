@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AlertSucessComponent } from './alert-sucess/alert-sucess.component';
+import { AlertDangerComponent } from './alert-danger/alert-danger.component';
 
 
 @Component({
@@ -20,4 +22,15 @@ export class AppComponent {
     }
   subject = ["math", "science", "biology", "physics", "chemistry"]
   selectedSub = this.subject[2]
+
+  alert = AlertSucessComponent
+
+  switchAlert(){
+    if(this.alert == AlertSucessComponent){
+      this.alert = AlertDangerComponent
+    }
+    else[
+      this.alert = AlertSucessComponent
+    ]
+  }
 }
