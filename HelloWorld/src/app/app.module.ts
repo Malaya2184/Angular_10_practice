@@ -7,13 +7,18 @@ import { AppComponent } from './app.component';
 import { LifeCycleComponent } from './life-cycle/life-cycle.component';
 import { AlertSucessComponent } from './alert-sucess/alert-sucess.component';
 import { AlertDangerComponent } from './alert-danger/alert-danger.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { NestedEmployeesComponent } from './nested-employees/nested-employees.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LifeCycleComponent,
     AlertSucessComponent,
-    AlertDangerComponent
+    AlertDangerComponent,
+    EmployeesComponent,
+    NestedEmployeesComponent
   ],
   imports: [
     BrowserModule,

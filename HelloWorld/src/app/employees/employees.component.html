@@ -1,0 +1,24 @@
+<p>employees works!</p>
+
+    <div *ngIf="selected; then selectedEmp ;else normalEmp"></div>
+    <ng-template #selectedEmp>
+        <b>
+            <div>
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.dateOfJoining}}</td>
+                <td>{{emp.salary}}</td>
+                <td>{{emp.emptype}}</td>
+            </div>
+        </b>
+    </ng-template>
+    <ng-template #normalEmp>
+        <div>
+            <td>{{emp.id}}</td>
+            <td>{{emp.name}}</td>
+            <td>{{emp.dateOfJoining}}</td>
+            <td>{{emp.salary}}</td>
+            <td>{{emp.emptype}}</td>
+        </div>
+    </ng-template>
+

@@ -1,0 +1,14 @@
+<p>nested-employees works!</p>
+
+<table>
+    <tr *ngFor="let e of employees">
+        <!-- <td>{{e.id}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.dateOfJoining}}</td>
+        <td>{{e.salary}}</td>
+        <td>{{e.emptype}}</td> -->
+        <app-employees [emp] = "e" [selected]="selectedEmployee == e"></app-employees>
+        <input type="button" value="Select Employee" (click)="selectEmployee(e)">
+    </tr>
+
+</table>
