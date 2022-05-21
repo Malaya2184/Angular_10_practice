@@ -1,0 +1,28 @@
+<h3>Employee Component working Perfectly!</h3>
+
+<div class="container">
+    <h1>Employee Form</h1>
+    <form name="frmEmployee">
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input type="text" id="id" class="form-control" name="id" [(ngModel)]="emp.id">
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" class="form-control" name="name" [(ngModel)]="emp.name">
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="text" id="salary" class="form-control" name="salary" [(ngModel)]="emp.salary">
+        </div>
+        <div class="form-group">
+            <label for="department"></label>
+            <select class="form-control" id ="department" name = "department" [(ngModel)]="emp.department">
+                <option *ngFor="let dep of department" [value]="dep"> {{dep}} </option>
+            </select>
+        </div>
+    </form>
+    <br>
+    <br>
+    <h3>get dignostics &nbsp; {{dignostic}}</h3>
+</div>
