@@ -9,6 +9,7 @@ import { AlertSucessComponent } from './alert-sucess/alert-sucess.component';
 import { AlertDangerComponent } from './alert-danger/alert-danger.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { NestedEmployeesComponent } from './nested-employees/nested-employees.component';
+import { SizerComponentComponent } from './sizer-component/sizer-component.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NestedEmployeesComponent } from './nested-employees/nested-employees.co
     AlertSucessComponent,
     AlertDangerComponent,
     EmployeesComponent,
-    NestedEmployeesComponent
+    NestedEmployeesComponent,
+    SizerComponentComponent
   ],
   imports: [
     BrowserModule,
