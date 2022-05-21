@@ -33,4 +33,5 @@ export class AppComponent {
       this.alert = AlertSucessComponent
     ]
   }
+  fontSize:number = 10;
 }
