@@ -13,7 +13,7 @@ export class EmployeeComponent{
   department = ["sales", "developement", "hr", " accounting"]
 
   constructor() { 
-    this.emp = new Employee(1,"Malaya", 100000, "accounting" );
+    this.emp = new Employee(1,"Malaya kumar swain", 100000, "accounting" );
     // console.log(this.emp);
     //  here new Employee(1,"Malaya", 100000, "accounting" ) returns 
     // {
