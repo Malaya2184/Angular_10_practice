@@ -2,27 +2,33 @@
 
 <div class="container">
     <h1>Employee Form</h1>
-    <form name="frmEmployee">
+    <form #empForm novalidate name="frmEmployee" (ngSubmit)="onSubmit(empForm)">
         <div class="form-group">
             <label for="id">Id</label>
-            <input type="text" id="id" class="form-control" name="id" [(ngModel)]="emp.id">
+            <input type="text" id="id" class="form-control" name="id" [(ngModel)]="emp.id" required>
         </div>
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" #empName id="name" class="form-control" name="name" [(ngModel)]="emp.name" required pattern="[a-zA-Z0-9 ]+">
-            <br>
-            CSS class names : using empname.className =====>  {{empName.className}}
+            <input type="text" #empName="ngModel" id="name" class="form-control" name="name" [(ngModel)]="emp.name" required pattern="[a-zA-Z ]+">
+            <!-- <br> -->
+            <div class="alert alert-danger" [hidden]="empName.valid || empName.pristine ">
+                Name is required
+            </div>
+            <!-- CSS class names : using empname.className =====>  {{empName.className}} -->
         </div>
         <div class="form-group">
             <label for="salary">Salary</label>
-            <input type="text" id="salary" class="form-control" name="salary" [(ngModel)]="emp.salary">
+            <input type="text" id="salary" class="form-control" name="salary" [(ngModel)]="emp.salary" required>
         </div>
         <div class="form-group">
             <label for="department"></label>
-            <select class="form-control" id ="department" name = "department" [(ngModel)]="emp.department">
+            <select class="form-control" id ="department" name = "department" [(ngModel)]="emp.department" required>
                 <option *ngFor="let dep of department" [value]="dep"> {{dep}} </option>
             </select>
         </div>
+        <button type="button" (click)="newEmployee(); empForm.reset()" class="btn btn-primary">New Employee</button> &nbsp;
+        <input type="submit" name="Submit" class="btn btn-primary" value="Submit">
+        
     </form>
     <br>
     <br>

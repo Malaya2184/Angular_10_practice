@@ -13,7 +13,7 @@ export class EmployeeComponent{
   department = ["sales", "developement", "hr", " accounting"]
 
   constructor() { 
-    this.emp = new Employee(1,"Malaya kumar swain", 100000, "accounting" );
+    this.emp = new Employee(1,"Mlaaya spider", 100000, "accounting" );
     // console.log(this.emp);
     //  here new Employee(1,"Malaya", 100000, "accounting" ) returns 
     // {
@@ -27,5 +27,15 @@ export class EmployeeComponent{
 
   get dignostic(){return JSON.stringify(this.emp)}
 
+  newEmployee(){
+
+    alert("form submitted sucessfully")
+    this.emp = new Employee(0, '',0,'')
+  }
+
+  onSubmit(frm:any){
+    alert(frm.id.value+ " " + frm.name.value)
+    // this.newEmployee()
+  }
 
 }
