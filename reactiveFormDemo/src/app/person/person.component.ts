@@ -25,7 +25,14 @@ export class PersonComponent implements OnInit {
     this.createForm()
 
     this.person = new Person("malaya", "swain", "male", "mba");
-    this.personForm.setValue({
+  //   this.personForm.setValue({
+  //     firstName: this.person.firstName,
+  //     lastName: this.person.lastName,
+  //     gender: this.person.gender,
+  //     qualification: this.person.qualification
+  //   })
+  // }
+    this.personForm.patchValue({
       firstName: this.person.firstName,
       lastName: this.person.lastName,
       gender: this.person.gender,
