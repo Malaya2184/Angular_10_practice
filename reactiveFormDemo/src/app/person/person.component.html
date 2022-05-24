@@ -1,6 +1,6 @@
 <h3>person component works!</h3>
 
-<form [formGroup]="personForm" class="container" novalidate >
+<form [formGroup]="personForm" class="container" novalidate  (ngSubmit)="submitdata()">
     <div class="form-group">
         <label for="firstName">First name</label>
         <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName" required >
@@ -21,6 +21,11 @@
             <option *ngFor="let qual of degree" [value]="qual" >{{qual}}</option>
         </select>
     </div>
+    <input type="submit" class="btn btn-primary">
     <pre>{{personForm.value | json}}</pre>
     <pre>{{personForm.status | json}}</pre>
+    first name is :<pre>{{personForm.value.firstName}}</pre>
+    first name is :<pre>{{personForm.get('firstName')?.value}}</pre>
+    first name status :<pre>{{personForm.get('firstName')?.status}}</pre>
+
 </form>

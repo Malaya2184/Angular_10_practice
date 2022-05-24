@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
+import {Person} from './person'
 
 
 @Component({
@@ -16,12 +17,20 @@ export class PersonComponent implements OnInit {
   degree=['mba', 'mca', 'bba', 'bca']
 
   personForm!: FormGroup;
-  constructor() { 
-    this.createFormControl()
-    this.createForm()
-  }
+
+  person!: Person;
 
   ngOnInit(): void {
+    this.createFormControl()
+    this.createForm()
+
+    this.person = new Person("malaya", "swain", "male", "mba");
+    this.personForm.setValue({
+      firstName: this.person.firstName,
+      lastName: this.person.lastName,
+      gender: this.person.gender,
+      qualification: this.person.qualification
+    })
   }
 
   createFormControl(){
@@ -38,6 +47,12 @@ export class PersonComponent implements OnInit {
       gender: this.gender,
       qualification: this.qualification
     });
+    
+  }
+  submitdata(){
+    alert(JSON.stringify(this.personForm.value));
+    console.log(this.personForm.get('firstName')?.value);
+    
     
   }
 
