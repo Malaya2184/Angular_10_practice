@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {Person} from './person'
 
 
@@ -14,6 +14,7 @@ export class PersonComponent implements OnInit {
   lastName!: FormControl;
   gender!: FormControl;
   qualification!: FormControl;
+  email!: FormControl;
   degree=['mba', 'mca', 'bba', 'bca']
 
   personForm!: FormGroup;
@@ -24,7 +25,7 @@ export class PersonComponent implements OnInit {
     this.createFormControl()
     this.createForm()
 
-    this.person = new Person("malaya", "swain", "male", "mba");
+    this.person = new Person("malaya", "swain", "male", "mba", "abc@gmail.com");
   //   this.personForm.setValue({
   //     firstName: this.person.firstName,
   //     lastName: this.person.lastName,
@@ -36,15 +37,17 @@ export class PersonComponent implements OnInit {
       firstName: this.person.firstName,
       lastName: this.person.lastName,
       gender: this.person.gender,
-      qualification: this.person.qualification
+      qualification: this.person.qualification,
+      email: this.person.email
     })
   }
 
   createFormControl(){
-    this.firstName = new FormControl();
+    this.firstName = new FormControl(this.firstName,[Validators.required, Validators.pattern('[a-zA-Z ]+')]);
     this.lastName = new FormControl();
+    this.email = new FormControl(this.email,[Validators.required,Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]);
     this.gender = new FormControl();
-    this.qualification = new FormControl('mca');
+    this.qualification = new FormControl();
     
   }
   createForm(){
@@ -52,7 +55,8 @@ export class PersonComponent implements OnInit {
       firstName: this.firstName,
       lastName: this.lastName,
       gender: this.gender,
-      qualification: this.qualification
+      qualification: this.qualification,
+      email: this.email
     });
     
   }

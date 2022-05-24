@@ -3,11 +3,23 @@
 <form [formGroup]="personForm" class="container" novalidate  (ngSubmit)="submitdata()">
     <div class="form-group">
         <label for="firstName">First name</label>
-        <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName" required >
+        <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName" >
+        <div class="form-control-feedback alert-danger" *ngIf="firstName.errors  && (firstName.touched || firstName.dirty)">
+            <p *ngIf="firstName.errors?.['required']">first name can not b empty</p>
+            <p *ngIf="firstName.errors?.['pattern']">it can not contain number or special characters</p>
+        </div>
     </div>
     <div class="form-group">
         <label for="lastName">last name</label>
         <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName" required>
+    </div>
+    <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" name="email" id="email" class="form-control" formControlName="email" >
+        <div class="form-control-feedback alert-danger" *ngIf="email.errors && (email.touched || email.dirty)">
+            <p *ngIf="email.errors?.['required']">email field can not be empty</p>
+            <p *ngIf="email.errors?.['email'] || email.errors?.['pattern'] ">incorrect emailid</p>
+        </div>
     </div>
     <div class="form-group">
         <label for="gender">gender</label>
