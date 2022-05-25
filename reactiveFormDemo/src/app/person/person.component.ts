@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { debounceTime } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs';
 import {Person} from './person'
-
 
 @Component({
   selector: 'app-person',
@@ -11,6 +12,7 @@ import {Person} from './person'
 export class PersonComponent implements OnInit {
 
   firstName!: FormControl;
+  changedArr: string[]=[]
   lastName!: FormControl;
   gender!: FormControl;
   qualification!: FormControl;
@@ -44,6 +46,20 @@ export class PersonComponent implements OnInit {
 
   createFormControl(){
     this.firstName = new FormControl(this.firstName,[Validators.required, Validators.pattern('[a-zA-Z ]+')]);
+    // // for every time value change
+    // this.firstName.valueChanges.subscribe(change => {
+    //   this.changedArr.push(change)
+    // })
+
+    // //for when you stop typing
+    // this.firstName.valueChanges.pipe(debounceTime(500)).subscribe(change => {
+    //   this.changedArr.push(change)
+    // })
+
+    // distinct untill changed
+    this.firstName.valueChanges.pipe(debounceTime(500)).pipe(distinctUntilChanged()).subscribe(change => {
+      this.changedArr.push(change)
+    })
     this.lastName = new FormControl();
     this.email = new FormControl(this.email,[Validators.required,Validators.email, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]);
     this.gender = new FormControl();
