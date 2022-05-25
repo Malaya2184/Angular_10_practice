@@ -1,0 +1,35 @@
+<h3>person working perfectly</h3>
+
+<form [formGroup]="personForm" class="container" novalidate>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName">
+        <div class="form-control-feedback alert-danger" *ngIf="personForm.controls['firstName'].errors  && (personForm.controls['firstName'].touched || personForm.controls['firstName'].dirty)">
+          <p *ngIf="personForm.controls['firstName'].errors?.['required']">first name can not b empty</p>
+          <p *ngIf="personForm.controls['firstName'].errors?.['pattern']">it can not contain number or special characters</p>
+      </div>
+    </div>
+    <ol>
+      <li *ngFor="let change of firstNameChange">{{change}}</li>
+    </ol>
+
+    <div class="form-group">
+      <label for="lastName">First Name</label>
+        <input type="text" name="lastName" id="lastName" class="form-control" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label for="gender">gender</label>
+      <br>
+      <input type="radio" name="gender" id="male"  formControlName="gender" value="male">Male
+      <input type="radio" name="gender" id="female"  formControlName="gender" value="female">Femle
+    </div>
+    <div class="form-group">
+      <label for="degree">qualification</label>
+      <select name="degree" id="degree" class="form-control" formControlName="degree">
+          <option *ngFor="let qual of degrees" [value]="qual" >{{qual}}</option>
+      </select>
+  </div>
+
+  <pre>{{personForm.value | json}}</pre>
+  <pre>{{personForm.status | json}}</pre>
+</form>
