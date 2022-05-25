@@ -63,6 +63,7 @@ export class PersonComponent implements OnInit {
   submitdata(){
     alert(JSON.stringify(this.personForm.value));
     console.log(this.personForm.get('firstName')?.value);
+    this.personForm.reset();
     
     
   }
