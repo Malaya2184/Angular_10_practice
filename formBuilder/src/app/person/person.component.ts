@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { debounceTime } from 'rxjs';
 import { Person } from './../person';
 
 @Component({
@@ -25,7 +26,10 @@ export class PersonComponent implements OnInit {
       gender: [this.person.gender],
       degree: [this.person.degree]
     })
-    this.personForm.controls['firstName'].valueChanges.subscribe(change =>{
+    // this.personForm.controls['firstName'].valueChanges.subscribe(change =>{
+    //   this.firstNameChange.push(change)
+    // })
+    this.personForm.controls['firstName'].valueChanges.pipe(debounceTime(500)).subscribe(change =>{
       this.firstNameChange.push(change)
     })
   }
