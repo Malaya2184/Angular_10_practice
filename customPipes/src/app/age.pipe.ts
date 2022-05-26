@@ -7,6 +7,7 @@ import * as moment from 'moment';
 export class agePipe implements PipeTransform{
     transform(value: Date) {
 
+        //ny using moment library
         let today = moment();
         let birthdate = moment(value);
         let years = today.diff(birthdate, 'years');
