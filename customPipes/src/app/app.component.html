@@ -8,4 +8,4 @@
 <h3>custom birth age cal</h3>
 <h3>{{birthdate| ageCal: 'y'}}</h3>
 
-<h2 *ngFor=" let emp of employees">{{emp | salaryFilter: 40000:10000 | json}}</h2>
+<h2 *ngFor=" let emp of employees">{{ (emp | salaryFilter: 40000:10000 )| json}}</h2>
