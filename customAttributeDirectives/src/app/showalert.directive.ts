@@ -19,7 +19,7 @@ export class ShowalertDirective {
       er.nativeElement.style.fontSize = '20px'
     })
     renderer.listen(er.nativeElement,'click', function(){
-    alert("Hello World")
+    alert(er.nativeElement.innerHTML)
     })
    }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Employee } from './employee';
 
 @Component({
@@ -8,6 +8,7 @@ import { Employee } from './employee';
 })
 export class EmployeeComponent{
 
+  @ViewChild('empForm') empFormObj: any
   emp: Employee;
 
   department = ["sales", "developement", "hr", " accounting"]
@@ -34,8 +35,11 @@ export class EmployeeComponent{
   }
 
   onSubmit(frm:any){
-    alert(frm.id.value+ " " + frm.name.value)
+    // alert(frm.id.value+ " " + frm.name.value)
+    alert(this.empFormObj.controls.id.value+ " " + this.empFormObj.controls.name.value)
+    // console.log(this.empFormObj);
     // this.newEmployee()
+    this.empFormObj.reset();
   }
 
 }

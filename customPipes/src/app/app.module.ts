@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { multiplyPipe } from './multiply.pipe';
 import { ageCal } from './ageCal.pipe';
 import { salaryFilter } from './salaryFilter.pipe';
+import { joinPipe } from './join.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { salaryFilter } from './salaryFilter.pipe';
     multiplyPipe,
     agePipe,
     ageCal,
-    salaryFilter
+    salaryFilter,
+    joinPipe
   ],
   imports: [
   BrowserModule,

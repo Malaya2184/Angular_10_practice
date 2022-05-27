@@ -19,4 +19,10 @@ export class AppComponent {
   ]
 
   birthdate = new Date('10,01,1996');
+
+  persons = ['person1', 'person2']
+  addValue(value:string){
+
+    this.persons.push(value)
+  }
 }

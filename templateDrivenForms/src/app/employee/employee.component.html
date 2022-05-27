@@ -2,7 +2,7 @@
 
 <div class="container">
     <h1>Employee Form</h1>
-    <form #empForm novalidate name="frmEmployee" (ngSubmit)="onSubmit(empForm)">
+    <form #empForm="ngForm" novalidate name="frmEmployee" (ngSubmit)="onSubmit(empForm)">
         <div class="form-group">
             <label for="id">Id</label>
             <input type="text" id="id" class="form-control" name="id" [(ngModel)]="emp.id" required>
