@@ -1,0 +1,8 @@
+<h3>app component</h3>
+
+<form [formGroup]="myForm">
+  <input type="text" formControlName ='myName'>
+  <div *ngIf="myForm.controls['myName'].errors?.['uppercaseValid']">can not start with small letter</div>
+
+  <pre>{{myForm.value |json}}</pre>
+</form>
