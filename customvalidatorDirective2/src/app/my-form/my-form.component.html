@@ -1,0 +1,16 @@
+<h3>my-form works!</h3>
+
+<form class="container" [formGroup]="myForm" novalidate>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+          <input type="text" name="firstName" id="firstName" class="form-control" formControlName="firstName">
+        <div class="form-control-feedback alert-danger" *ngIf="myForm.controls['firstName'].errors?.['upperCasevalid']">
+            upper case error
+        </div>
+        <div class="form-control-feedback alert-danger" *ngIf="myForm.controls['firstName'].errors?.['required']">
+            throwing errors
+        </div>
+    </div>
+
+    <!-- <pre>{{myForm.value|json}}</pre> -->
+</form>
