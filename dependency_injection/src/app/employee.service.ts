@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './employee';
+import { LoggerService } from './logger.service';
 
 @Injectable()
 export class EmployeeService {
 
-  constructor() { }
+  constructor(private logger: LoggerService) { }
 
   getEmployee(): Employee[]{
-
+    this.logger.log('this is spider')
+    this.logger.printLog()
     let employees : Employee[]=[
       new Employee(1,"malaya",100000, new Date('2022,10,01')),
       new Employee(2,"nalaya",10000, new Date('2022,10,02')),
