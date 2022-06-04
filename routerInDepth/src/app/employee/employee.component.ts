@@ -7,6 +7,7 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
+
 export class EmployeeComponent implements OnInit,OnDestroy {
 
   emps : Employee[]= []
