@@ -1,0 +1,31 @@
+<p>employee works!</p>
+
+<table style="border: 1px solid black; border-inline: 1px;">
+    <tr >
+        <td>Emp id</td>
+        <td>Emp name</td>
+        <td>salary</td>
+        <td>Details</td>
+    </tr>
+    <tr *ngFor="let emp of emps">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName}}</td>
+        <td>{{emp.salary}}</td>
+        <td><a [routerLink]="['/emp',emp.empId,emp.empName]">Details</a></td>
+    </tr>
+</table>
+
+<h2 *ngIf="selectedEmp != null">Emp details</h2>
+<table style="border: 1px solid black; border-inline: 1px;" *ngIf="selectedEmp != null">
+    <tr >
+        <td>Emp Name</td>
+        <td>Emp Dept id</td>
+        <td>Emp Dept Name</td>
+        
+    </tr>
+    <tr >
+        <td>{{selectedEmp.empName}}</td>
+        <td>{{selectedEmp.department.deptId}}</td>
+        <td>{{selectedEmp.department.deptName}}</td>
+    </tr>
+</table>

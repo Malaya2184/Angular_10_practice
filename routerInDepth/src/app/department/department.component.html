@@ -1,0 +1,14 @@
+<p>department works!</p>
+
+<table style="border: 1px solid black; border-inline: 1px;">
+    <tr >
+        <td>Dept id</td>
+        <td>Dept name</td>
+      
+    </tr>
+    <tr *ngFor="let dep of depts">
+        <td>{{dep.deptId}}</td>
+        <td>{{dep.deptName}}</td>
+  
+    </tr>
+</table>
