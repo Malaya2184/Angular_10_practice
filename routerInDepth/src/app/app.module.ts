@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
     NotFoundComponent,
     HomeComponent,
 
+
   ],
   imports: [
     BrowserModule,
