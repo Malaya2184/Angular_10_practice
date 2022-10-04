@@ -9,7 +9,7 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'HttpModule';
 
-  empUrl = 'http://dummy.restapiexample.com/api/v1/employees'
+  empUrl = 'http://localhost:8080/productrestapi/products/'
   employees: any;
   constructor(private http : HttpClient){
 
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
  ngOnInit(){
   this.getEmp().subscribe( (emp: any) => {
     this.employees = emp
-  // console.log(this.employees);
+  console.log(this.employees);
   })
   
   // console.log(JSON.stringify(this.employees));
